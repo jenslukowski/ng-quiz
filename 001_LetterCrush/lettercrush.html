@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.11/angular.min.js"></script>
+    <script type="text/javascript" src="lettercrush.js"></script>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="lettercrush.css">
+  </head>
+  <body>
+    <div ng-app="LetterCrush" class="container">
+      <div ng-controller="LetterCrush" class="col-md-9">
+        <div class="jumbotron">
+          <h1>Letter Crush</h1>
+          <p>Fun with words</p>
+        </div>
+        <div class="col-md-7">
+          <div class="form-group">
+            <label for="dictionary" class="control-label">Please choose a dictionary to play with (one word per line)</label>
+            <input type="file" id="dictionary" ng-model="file">
+          </div>
+        </div>
+        <div class="col-md-5">
+          <form ng-submit="testWord()">
+            <div class="form-group">
+              <label for="score" class="control-label">Your score</label>
+              <span class="form-control-static"><big>{{score}}</big></span>
+            </div>
+            <div class="form-group">
+              <label for="word" class="control-label">Your word</label>
+              <input ng-model="word" type="text" id="word">
+            </div>
+          </form>
+        </div>
+        <div class="col-md-12">
+          <table class="table">
+            <tr ng-repeat="row in board.content track by $index"><td ng-repeat="cell in row track by $index">{{cell}}</td></tr>
+          </table>
+        </div>
+    </div>
+  </body>
+</html>
