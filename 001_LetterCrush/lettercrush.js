@@ -1,3 +1,4 @@
+
 var module = angular.module("LetterCrush", []);
 
 // FileReader service
